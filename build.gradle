@@ -22,8 +22,12 @@ repositories {
 
 dependencies {
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
-    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+    implementation('jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0') {
+        exclude group: 'jakarta.servlet', module: 'jakarta.servlet-api'
+    }
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+    implementation 'org.postgresql:postgresql:42.7.5'
+    implementation 'com.zaxxer:HikariCP:6.2.1'
 }
 
 tasks.named('war', War) {

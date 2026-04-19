@@ -26,7 +26,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("89.90"))
                 .description("Notas de ameixa madura, chocolate amargo e taninos sedosos. Estrutura generosa com "
                         + "final persistente — texto fictício para o catálogo acadêmico Vinheria.")
-                .imageUrl("https://picsum.photos/seed/vinho-malbec/600/400")
+                .imageUrl("static/12726-em-reserva-malbec.png")
                 .vintage("2022")
                 .classification("Seco")
                 .servingTemperature("16 °C a 18 °C")
@@ -47,7 +47,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("129.00"))
                 .description("Blend encorpado com camadas de fruta negra, pimentão doce e especiarias. Final longo "
                         + "e textura aveludada — dados apenas para demonstração.")
-                .imageUrl("https://picsum.photos/seed/vinho-carmenere/600/400")
+                .imageUrl("static/21601-indomita-varietal-carmenere-375.png")
                 .vintage("2021")
                 .classification("Seco")
                 .servingTemperature("15 °C a 17 °C")
@@ -68,7 +68,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("74.50"))
                 .description("Cremoso, com notas de baunilha, frutas brancas e leve tostado. Acidez equilibrada — "
                         + "descrição ilustrativa sem vínculo com produto real.")
-                .imageUrl("https://picsum.photos/seed/vinho-chardonnay/600/400")
+                .imageUrl("static/evel-reserva-tinto-site.jpg")
                 .vintage("2023")
                 .classification("Seco")
                 .servingTemperature("10 °C a 12 °C")
@@ -89,7 +89,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("159.90"))
                 .description("Elegante, acidez vibrante e notas de morango silvestre e cereja. Taninos finos — "
                         + "exemplo de copy para testes de interface.")
-                .imageUrl("https://picsum.photos/seed/vinho-pinot/600/400")
+                .imageUrl("static/Indomita-Gran.Reserva-PN-imgsite.png")
                 .vintage("2022")
                 .classification("Seco")
                 .servingTemperature("14 °C a 16 °C")
@@ -110,7 +110,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("199.00"))
                 .description("Bolhas finas, perlage persistente e notas de brioche e frutas cítricas. Seco e "
                         + "vertical — rótulo e região são placeholders do projeto.")
-                .imageUrl("https://picsum.photos/seed/vinho-espumante/600/400")
+                .imageUrl("static/porca-murca-reserva-tinto.png")
                 .vintage("2020")
                 .classification("Brut Nature")
                 .servingTemperature("6 °C a 8 °C")
@@ -131,7 +131,7 @@ public final class WineCatalog {
                 .price(new BigDecimal("39.90"))
                 .description("Leve, frutado e fácil de harmonizar no dia a dia. Doçura perceptível suave — "
                         + "imagem e copy gerados para testes de interface.")
-                .imageUrl("https://picsum.photos/seed/vinho-suave/600/400")
+                .imageUrl("static/21601-indomita-varietal-carmenere-375.png")
                 .vintage("2024")
                 .classification("Suave")
                 .servingTemperature("12 °C a 14 °C")

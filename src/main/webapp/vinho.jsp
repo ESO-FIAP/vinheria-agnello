@@ -8,7 +8,7 @@
 
 <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
     <div>
-        <img src="${w.imageUrl}" alt="" width="600" height="400"
+        <img src="${pageContext.request.contextPath}/${w.imageUrl}" alt="" width="600" height="400"
              class="w-full rounded-2xl border border-stone-200 object-cover shadow-sm"/>
     </div>
     <div>

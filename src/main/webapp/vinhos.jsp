@@ -7,7 +7,6 @@
 <div class="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
     <div>
         <h1 class="text-3xl font-bold text-stone-900">Catálogo</h1>
-        <p class="mt-1 text-stone-600">Seleção dummy de rótulos para o projeto Vinheria.</p>
     </div>
     <p class="text-sm text-stone-500">
         <c:choose>
@@ -116,7 +115,7 @@
                     <c:forEach var="w" items="${wines}">
                         <article class="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md">
                             <a href="${pageContext.request.contextPath}/vinho?id=${w.id}">
-                                <img src="${w.imageUrl}" alt="" width="600" height="400"
+                                <img src="${pageContext.request.contextPath}/${w.imageUrl}" alt="" width="600" height="400"
                                      class="h-48 w-full object-cover"/>
                             </a>
                             <div class="p-4">

@@ -4,14 +4,13 @@ uri="jakarta.tags.core" %>
 <%@ include file="/WEB-INF/jspf/header.jspf" %>
 
 <div
-  class="-mx-4 -mt-8 mb-8 overflow-hidden rounded-b-2xl shadow-md sm:mx-0 sm:mt-0 sm:rounded-2xl"
+  class="-mx-4 -mt-8 mb-8 overflow-hidden rounded-b-2xl shadow-md sm:mx-0 sm:mt-0 sm:rounded-2xl max-w-[150px]"
 >
   <img
-    src="https://picsum.photos/seed/vinheria-header/1200/360"
-    alt=""
-    width="1200"
-    height="360"
-    class="h-56 w-full object-cover sm:h-72"
+    src="${pageContext.request.contextPath}/static/logo.png"
+    alt="Logo da Vinheria Agnello"
+    width="100%"
+    height="100%"
   />
 </div>
 

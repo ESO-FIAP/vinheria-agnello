@@ -27,7 +27,6 @@ uri="jakarta.tags.core" %>
     atendimento próximo, confiança e cuidado com cada cliente, proporcionando
     uma experiência acolhedora para quem aprecia bons vinhos e bons momentos.
   </p>
-  \
 </div>
 
 <%@ include file="/WEB-INF/jspf/footer.jspf" %>

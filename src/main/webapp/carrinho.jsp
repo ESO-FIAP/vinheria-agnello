@@ -4,7 +4,19 @@
 <fmt:setLocale value="pt_BR"/>
 <%@ include file="/WEB-INF/jspf/header.jspf" %>
 
-<h1 class="mb-6 text-3xl font-bold text-stone-900">Carrinho</h1>
+<h1 class="mb-4 text-3xl font-bold text-stone-900">Carrinho</h1>
+
+<div class="mb-6 rounded-lg border border-stone-200 bg-white p-4 text-stone-800 shadow-sm">
+    <p class="text-sm font-medium text-stone-600">Você está comprando como:</p>
+    <p class="mt-1 text-lg font-semibold text-red-900">
+        <c:choose>
+            <c:when test="${not empty sessionScope.usuario}">
+                ${sessionScope.usuario.displayName}
+            </c:when>
+            <c:otherwise>anonimo</c:otherwise>
+        </c:choose>
+    </p>
+</div>
 
 <c:choose>
     <c:when test="${empty cartLines}">
@@ -12,6 +24,12 @@
         <a href="${pageContext.request.contextPath}/vinhos" class="mt-4 inline-block font-medium text-red-800 hover:underline">Ver vinhos</a>
     </c:when>
     <c:otherwise>
+        <c:if test="${not empty erroCheckout}">
+            <div class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                ${erroCheckout}
+            </div>
+        </c:if>
+
         <div class="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
             <table class="min-w-full divide-y divide-stone-200 text-left text-sm">
                 <thead class="bg-stone-100 text-stone-700">
@@ -58,18 +76,48 @@
             </table>
         </div>
 
-        <div class="mt-6 flex flex-col items-end gap-4">
-            <p class="text-lg font-semibold text-stone-900">
-                Total:
-                <fmt:formatNumber value="${cartTotal}" type="currency" currencyCode="BRL"/>
-            </p>
-            <form action="${pageContext.request.contextPath}/checkout" method="post">
+        <form action="${pageContext.request.contextPath}/checkout" method="post"
+              class="mt-8 space-y-6 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-stone-900">Endereço de entrega</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                    <label class="block text-sm font-medium text-stone-700" for="rua">Rua</label>
+                    <input id="rua" name="rua" type="text" required autocomplete="street-address"
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 shadow-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-800"/>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-stone-700" for="numero">Número</label>
+                    <input id="numero" name="numero" type="text" required
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 shadow-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-800"/>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-stone-700" for="complemento">Complemento</label>
+                    <input id="complemento" name="complemento" type="text" autocomplete="address-line2"
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 shadow-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-800"/>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-stone-700" for="bairro">Bairro</label>
+                    <input id="bairro" name="bairro" type="text" required
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 shadow-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-800"/>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-stone-700" for="cep">CEP</label>
+                    <input id="cep" name="cep" type="text" required inputmode="numeric" autocomplete="postal-code"
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 shadow-sm focus:border-red-800 focus:outline-none focus:ring-1 focus:ring-red-800"/>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-end gap-4 border-t border-stone-100 pt-6">
+                <p class="text-lg font-semibold text-stone-900">
+                    Total:
+                    <fmt:formatNumber value="${cartTotal}" type="currency" currencyCode="BRL"/>
+                </p>
                 <button type="submit"
                         class="rounded-full bg-red-900 px-8 py-3 text-sm font-semibold text-white shadow hover:bg-red-800">
                     Confirmar compra
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
     </c:otherwise>
 </c:choose>
 

@@ -5,6 +5,7 @@ import br.com.fiap.vinheria.model.CartItem;
 import br.com.fiap.vinheria.model.CartLine;
 import br.com.fiap.vinheria.model.Wine;
 import br.com.fiap.vinheria.web.CartHelper;
+import br.com.fiap.vinheria.web.SessionKeys;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +29,11 @@ public class CartServlet extends HttpServlet {
             total = total.add(line.getSubtotal());
         }
         req.setAttribute("cartTotal", total);
+        Object flashErro = req.getSession().getAttribute(SessionKeys.CARRINHO_ERRO);
+        if (flashErro instanceof String s && !s.isBlank()) {
+            req.setAttribute("erroCheckout", s);
+            req.getSession().removeAttribute(SessionKeys.CARRINHO_ERRO);
+        }
         req.getRequestDispatcher("/carrinho.jsp").forward(req, resp);
     }
 
